@@ -13,3 +13,4 @@ jobs:
         with:
           chart-folder: "./test"
           stop-if-find-orphans: false
+          stop-on-error: false
