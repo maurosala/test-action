@@ -9,4 +9,4 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - uses: krateoplatformops/helm-values-validator-action@v1.0.0
+      - uses: krateoplatformops/helm-values-validator-action@v1.0.1
