@@ -11,4 +11,5 @@ jobs:
         uses: actions/checkout@v2
       - uses: krateoplatformops/helm-values-validator-action@v1.0.2
         with:
+          chart-folder: "./test"
           stop-if-find-orphans: false
