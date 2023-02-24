@@ -1,0 +1,28 @@
+apiVersion: v2
+name: poc-fireworks
+description: Krateo PlatformOps Fireworks App (POC)
+type: application
+icon: "https://github.com/projectkerberus/kerberus-dashboard/blob/main/docs/media/square_black_logo.png"
+
+version: 0.0.1
+appVersion: 0.0.1
+
+dependencies:
+  - name: github-provider
+    version: "0.1.16"
+    repository: "https://charts.krateo.io"
+  - name: git-provider
+    version: "0.1.9"
+    repository: "https://charts.krateo.io"
+  # - name: deployment-service
+  #   version: "1.2.21"
+  #   repository: "https://charts.krateo.io"
+  # - name: secret-service
+  #   version: "1.1.4"
+  #   repository: "https://charts.krateo.io"
+  - name: dashboard-common-chart
+    version: "1.1.16"
+    repository: "https://charts.krateo.io"
+  - name: argo-cd
+    version: "4.4.5"
+    repository: "https://charts.bitnami.com/bitnami"

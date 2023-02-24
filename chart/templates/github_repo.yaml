@@ -1,0 +1,17 @@
+apiVersion: github.krateo.io/v1alpha1
+kind: Repo
+metadata:
+  # if it works, name should be: slugify( .Values.toRepo.name )
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  apiUrl: {{ .Values.toRepo.apiUrl }}
+  verbose: false
+  credentials:
+    secretRef:
+      namespace: {{ .Release.Namespace }}
+      name: {{ .Values.toRepo.endpoint }}
+      key: token
+  org: {{ .Values.toRepo.org }}
+  name: {{ .Values.toRepo.name }}
+  initialize: true

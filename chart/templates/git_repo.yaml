@@ -1,0 +1,28 @@
+apiVersion: git.krateo.io/v1alpha1
+kind: Repo
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    deploymentId: {{ .Values.deploymentId }}
+spec:
+  deploymentServiceUrl: http://deployment-service.{{ .Release.Namespace }}.svc
+  fromRepo:
+    url: "https://github.com/{{ .Values.org }}/{{ .Values.fromRepo.name }}"
+    path: skeleton
+    authMethod: basic
+    secretRef:
+      namespace:  {{ .Release.Namespace }}
+      name: {{ .Values.fromRepo.endpoint }}
+      key: token
+  toRepo:
+    url: "https://github.com/{{ .Values.org }}/{{ .Values.toRepo.name }}"
+    authMethod: basic
+    secretRef:
+      namespace: {{ .Release.Namespace }}
+      name: {{ .Values.toRepo.endpoint }}
+      key: token
+  configMapKeyRef:
+    name: {{ .Release.Name }}-cm
+    namespace: {{ .Release.Namespace }}
+    key: values

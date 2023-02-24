@@ -1,0 +1,37 @@
+apiVersion: krateo.io/v1alpha1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    deploymentId: {{ .Values.deploymentId }}
+spec:
+  title: {{ .Release.Namespace }}
+  description: {{.Values.description }}
+  owner: mauro
+  links:
+    - url: https://github.com/{{ .Values.org }}/{{ .Values.toRepo.name }}
+      title: {{ .Values.org }}/{{ .Values.toRepo.name }}
+      icon: "fa-brands fa-git"
+  plugins:
+    - name: resources
+      value: {{ .Values.toRepo.name }}
+      type: argocd
+      endpoint: argocd
+    - name: documentation
+      values:
+        - org: {{ .Values.org }}
+          repo: {{ .Values.toRepo.name }}
+          name: README.md
+      type: doc
+      endpoint: github
+    - name: kubernetes
+      value: deploymentId
+      type: kubernetes
+    - name: pipelines
+      values:
+        - org: {{ .Values.org }}
+          repo: {{ .Values.toRepo.name }}
+          name: Build Docker image for every commit
+      type: pipeline
+      endpoint: github

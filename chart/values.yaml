@@ -1,0 +1,22 @@
+---
+name: helm-poc-fireworks
+description: Cause baby, you're a firework. Come on, show 'em what you're worth
+org: krateoplatformops
+replicas: 1
+schema: https
+host: fireworks.krateo.site
+
+deploymentId: eb4d57b0-c764-4cde-8a9f-44bc2895c730
+
+# TBD
+fromRepo:
+  endpoint: github-endpoint
+  schema: https
+  org: krateoplatformops
+  name: krateo-template-fireworksapp
+toRepo:
+  org: krateoplatformops
+  schema: https
+  endpoint: github-endpoint
+  apiUrl: https://api.github.com
+  name: poc3-fireworksapp

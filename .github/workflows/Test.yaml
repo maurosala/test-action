@@ -1,0 +1,14 @@
+name: Build docs
+
+on:
+  push:
+    - "*"
+
+jobs:
+  build:
+    name: Test chart
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: actions/helm-values-validator-action@v1.0.0

@@ -1,0 +1,15 @@
+dependencies:
+- name: github-provider
+  repository: https://charts.krateo.io
+  version: 0.1.16
+- name: git-provider
+  repository: https://charts.krateo.io
+  version: 0.1.9
+- name: dashboard-common-chart
+  repository: https://charts.krateo.io
+  version: 1.1.16
+- name: argo-cd
+  repository: https://charts.bitnami.com/bitnami
+  version: 4.4.5
+digest: sha256:671c2b5045bc9401fd76adb33910fb866d603e573f544397d6bcfe3b8ea5e747
+generated: "2023-02-02T16:49:14.483107+01:00"

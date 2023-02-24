@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-cm
+  namespace: {{ .Release.Namespace }}
+  labels:
+    deploymentId: {{ .Values.deploymentId }}
+data:
+  values: |
+    {
+      "replicas": "{{ .Values.replicas }}",
+      "host": "{{ .Values.host }}",
+      "org": "{{ .Values.org }}",
+      "repo": "{{ .Values.toRepo.name }}",
+      "schema": "{{ .Values.toRepo.schema }}",
+      "apiUrl": "https://api.github.com",
+      "endpointName": "{{ .Values.toRepo.endpoint }}",
+      "repositoryName": "{{ .Values.toRepo.name }}",
+      "organizationName": "{{ .Values.org }}"
+    }
